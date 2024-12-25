@@ -1,0 +1,30 @@
+type: executable
+name: ".playground"
+
+load-context.!standalone:
+  enabled: false
+
+load-context.standalone:
+  deps:
+    - .library
+    - github:zwalloc/ulib-fmt ^1.0.0
+
+
+  cxxenv.msvc|clang.cl:
+    cxx-build-flags:
+      compiler:
+        - "/W3 /permissive- /sourceDependencies deps.json /Zi"
+        - "/utf-8"
+      linker:
+        - "/DEBUG"
+    config.release:
+      cxx-build-flags:
+        compiler:
+          - "/O2 /Oi /Gy"
+        linker:
+          - "/LTCG /OPT:REF /OPT:ICF"
+
+  config.debug:
+    cxx-build-flags:
+      compiler:
+        - "/Zi"

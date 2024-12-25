@@ -1,0 +1,9 @@
+load-context.standalone:
+  actions:
+    - run:
+        on: meta-available
+        command: python
+        args:
+          [
+            "${root-dir}/re-vscode-launch.py",
+          ]

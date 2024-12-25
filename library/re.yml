@@ -1,0 +1,7 @@
+type: static-library
+name: ".library"
+
+deps:
+  - vcpkg:yaml-cpp
+  - github:zwalloc/ulib ^1.0.0
+  - github:zwalloc/fops ^1.0.0
